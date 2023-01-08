@@ -1,0 +1,189 @@
+/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+/* Global Styles */
+
+* {
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #000000;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font: size 50px;
+  font-weight: 400;
+  line-height: 39px;
+  margin: 0;
+  position: relative;
+  background: linear-gradient(180deg, #F39B9B 20%, rgba(247, 185, 185, 0.703125) 43.75%, rgba(248, 198, 198, 0.566406) 76.04%, rgba(255, 255, 255, 0.79) 100%);
+  justify-content: center;
+  min-height: 700px;
+  margin-bottom: 200px;
+}
+
+.container {
+  margin-top: 200px;
+
+}
+
+router-outlet+* {
+  padding: 0 16px;
+}
+
+/* Text */
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h1,
+h2 {
+  font-weight: lighter;
+}
+
+p {
+  font-size: 14px;
+}
+
+/* Hyperlink */
+
+a {
+  cursor: pointer;
+  color: #1976d2;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Input */
+
+input {
+  font-size: 14px;
+  border-radius: 2px;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #BDBDBD;
+}
+
+label {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  display: block;
+  text-transform: uppercase;
+}
+
+/* Button */
+.button,
+button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 27px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.buttonGreen {
+
+  background: #7CE47A;
+  min-width: 200;
+  font-size: 16;
+  font-weight: "bold";
+  line-height: "40px";
+  border-radius: 24;
+  color: #000000;
+
+}
+
+.button:hover,
+button:hover {
+  opacity: 0.8;
+  background-color: white;
+  font-weight: normal;
+}
+
+.button:disabled,
+button:disabled {
+  opacity: 0.5;
+  cursor: auto;
+}
+
+/* Fancy Button */
+
+.fancy-button {
+  background-color: transparent;
+  color: #000000;
+}
+
+.fancy-button i.material-icons {
+  color: #000000;
+  padding-right: 4px;
+}
+
+/* Top Bar */
+
+app-header {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+app-footer {
+  background-color: #F39B9B;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: max-content;
+  align-items: center;
+  margin-top: 10px;
+  height: max-content;
+}
+
+.texto {
+  display: flex;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  align-items: center;
+  justify-content: center;
+}
+
+.icones {
+  display: flex;
+  margin-bottom: 5px;
+  margin-top: 0px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Checkout Cart, Shipping Prices */
+
+.cart-item,
+.shipping-item {
+  width: 100%;
+  min-width: 400px;
+  max-width: 450px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 16px 32px;
+  margin-bottom: 8px;
+  border-radius: 2px;
+  background-color: #EEEEEE;
+}

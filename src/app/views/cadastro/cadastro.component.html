@@ -1,0 +1,84 @@
+<main class="clientContainer">
+    <h3 class="h1_titulo">Dados do Cliente</h3>
+
+    <form class="clientForm" method="post" [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+        <div class="item1">
+            <label for="name"> Nome</label>
+            <input id="name" type="text" formControlName="name" required />
+            <span class ="text-danger"
+                *ngIf="(cadastroFormControl.name.touched || submitted) && cadastroFormControl.name.errors?.['required']">
+            *Campo obrigatorio
+            </span>
+        </div>
+
+        <div class="item2">
+            <label for="email"> E-mail</label>
+            <input id="email" type="email" formControlName="email" email="true" required />
+            <span class=""
+                *ngIf="(cadastroFormControl.email.touched || submitted) && cadastroFormControl.email.errors?.['required']">
+                *Campo obrigatorio
+            </span>
+            <span class="text-danger"
+                *ngIf="(cadastroFormControl.email.touched || submitted) && cadastroFormControl.email.errors?.['email']">
+                *Formato invalido
+            </span>
+
+        </div>
+        <div class="item3">
+            <label for="celular"> Cel</label>
+            <input id="celular" type="text" formControlName="celular" required />
+            <span class="text-danger"
+            *ngIf="(cadastroFormControl.celular.touched || submitted) && cadastroFormControl.celular.errors?.['required']">
+            *Campo obrigatorio
+        </span>
+        <span class="text-danger"
+            *ngIf="cadastroFormControl.celular.errors?.['pattern']" >
+            *Formato invalido
+        </span>
+        </div>
+
+        <div class="item4">
+            <label for="rua"> Rua</label>
+            <input id="rua" type="text" formControlName="rua" required />
+            <span class ="text-danger"
+                *ngIf="(cadastroFormControl.rua.touched || submitted) && cadastroFormControl.rua.errors?.['required']">
+            *Campo obrigatorio
+            </span>
+        </div>
+
+        <div class="item5">
+            <label for="numero"> Numero</label>
+            <input id="numero" type="number" formControlName="numero" required />
+            <span class="text-danger"
+            *ngIf="(cadastroFormControl.numero.touched || submitted) && cadastroFormControl.numero.errors?.['required']">
+            *Campo obrigatorio
+        </span>
+        <span class="text-danger"
+            *ngIf="cadastroFormControl.numero.errors?.['pattern']" >
+            *Formato invalido
+        </span>
+        </div>
+
+        <div class="item6">
+            <label for="bairro"> Bairro</label>
+            <input id="bairro" type="text" formControlName="bairro" required />
+            <span class ="text-danger"
+                *ngIf="(cadastroFormControl.bairro.touched || submitted) && cadastroFormControl.bairro.errors?.['required']">
+            *Campo obrigatorio
+            </span>
+        </div>
+
+        <div class="item7">
+            <label for="cidade"> Cidade</label>
+            <input id="cidade" type="text" formControlName="cidade" required />
+            <span class ="text-danger"
+                *ngIf="(cadastroFormControl.cidade.touched || submitted) && cadastroFormControl.cidade.errors?.['required']">
+            *Campo obrigatorio
+            </span>
+        </div>
+
+        <div class="button_form">
+            <button class="buttonGreen" type="submit">Salvar</button>
+        </div>
+    </form>
+</main>

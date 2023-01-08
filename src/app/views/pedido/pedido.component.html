@@ -1,0 +1,63 @@
+<main class="clientContainer">
+    <h2 class="h1_titulo">Dados do Cliente</h2>
+    <div *ngIf="redenrizarCliente">
+        <form class="clientForm" method="post" [formGroup]="clienteForm">
+            <div class="item1">
+                <input id="name" type="text" formControlName="name" readonly />
+            </div>
+
+            <div class="item2">
+                <label for="email"> E-mail</label>
+                <input id="email" type="email" formControlName="email" readonly />
+            </div>
+
+            <div class="item3">
+                <label for="celular"> Cel</label>
+                <input id="celular" type="text" formControlName="celular" readonly />
+            </div>
+
+            <div class="item4">
+                <label for="rua"> Rua</label>
+                <input id="rua" type="text" formControlName="rua" />
+            </div>
+
+            <div class="item5">
+                <label for="numero"> Numero</label>
+                <input id="numero" type="number" formControlName="numero" readonly />
+            </div>
+
+            <div class="item6">
+                <label for="bairro"> Bairro</label>
+                <input id="bairro" type="text" formControlName="bairro" readonly />
+            </div>
+
+            <div class="item7">
+                <label for="cidade"> Cidade</label>
+                <input id="cidade" type="text" formControlName="cidade" readonly />
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="!redenrizarCliente">
+        <h3 class="h1_titulo">
+            Cadastre um cliente antes de fazer o pedido
+        </h3>
+    </div>
+
+    <div>
+        <h2 class="h1_titulo">
+            Pedidos
+        </h2>
+    </div>
+
+    <div *ngIf="renderizarPedido">
+        <div>
+            {{pizzaCardapio}}
+        </div>
+    </div>
+
+    <div class="button_pedido" >
+        <button class="buttonGreen"  (click)="enviarPedido()">Fazer Pedido</button>
+    </div>
+
+</main>
