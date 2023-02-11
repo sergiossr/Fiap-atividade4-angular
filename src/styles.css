@@ -15,11 +15,11 @@ body {
   font-weight: 400;
   line-height: 39px;
   margin: 0;
-  position: relative;
+  
   background: linear-gradient(180deg, #F39B9B 20%, rgba(247, 185, 185, 0.703125) 43.75%, rgba(248, 198, 198, 0.566406) 76.04%, rgba(255, 255, 255, 0.79) 100%);
   justify-content: center;
-  min-height: 700px;
   margin-bottom: 200px;
+  
 }
 
 .container {
@@ -98,7 +98,6 @@ button {
 }
 
 .buttonGreen {
-
   background: #7CE47A;
   min-width: 200;
   font-size: 16;
@@ -106,7 +105,6 @@ button {
   line-height: "40px";
   border-radius: 24;
   color: #000000;
-
 }
 
 .button:hover,
@@ -147,10 +145,9 @@ app-footer {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  position: fixed;
+  position:fixed;
   bottom: 0;
   width: 100%;
-  height: max-content;
   align-items: center;
   margin-top: 10px;
   height: max-content;
@@ -187,3 +184,5 @@ app-footer {
   border-radius: 2px;
   background-color: #EEEEEE;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

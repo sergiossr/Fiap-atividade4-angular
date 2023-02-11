@@ -13,6 +13,8 @@ import { MonteComponent } from './views/monte/monte.component';
 import { CadastroComponent } from './views/cadastro/cadastro.component';
 import { PedidoComponent } from './views/pedido/pedido.component';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { RouterModule } from '@angular/router';
       {path:'monte',component: MonteComponent },
       {path:'cadastro',component: CadastroComponent},
       {path:'pedidos',component: PedidoComponent }
-    ])
+    ]),
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

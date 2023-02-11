@@ -51,13 +51,21 @@
     </div>
 
     <div *ngIf="renderizarPedido">
-        <div>
-            {{pizzaCardapio}}
-        </div>
+        <ul>
+          <li *ngFor="let i = index; let pizza of nomesPizzas;">
+            {{ pizza }} 
+            <button (click)="excluirPizza(ID[i],pizza)">Excluir</button>
+          </li>
+        </ul>
+      </div>
+
+    <div *ngIf="!renderizarPedido">
+        <h3 class="h1_titulo">Faça um pedido</h3>
     </div>
 
-    <div class="button_pedido" >
-        <button class="buttonGreen"  (click)="enviarPedido()">Fazer Pedido</button>
+
+    <div class="button_pedido">
+        <button class="buttonGreen" (click)="enviarPedido()">Fazer Pedido</button>
     </div>
 
 </main>

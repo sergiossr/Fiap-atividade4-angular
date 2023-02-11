@@ -12,17 +12,18 @@ import { PizzaService } from 'src/app/services/pizza.service';
 export class PedidoComponent implements OnInit {
 
   Cliente: any;
-  ClienteID: any;
+  ClienteID: number = 0;
   clienteForm: any;
   redenrizarCliente = false;
 
   //Variaveis para pedido
-  PizzaID: any[] = [1, 2];
+  x:any[]=[];
+  PizzaID: any[] = [];
+  ID: any[] = [];
+  nomesPizzas:any[] = [];
   renderizarPedido = false;
   payload: any = [];
-  NovasPizzas: any = [];
-  pizzaCardapio:any;
-
+  
   constructor(
     private clienteCadastroService: ClienteCadastroService,
     private pedidoService: PedidoService,
@@ -32,10 +33,22 @@ export class PedidoComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.Cliente=this.clienteCadastroService.receberCliente(this.Cliente)
+    this.PizzaID = this.pizzaService.getPizzasIDCardapio()
+    //this.PizzaID.push(this.Pizza.id)
 
+    this.ID = this.PizzaID.map(pizza => pizza.id);
+    console.log('ID[]', this.ID);
+
+    this.nomesPizzas = this.PizzaID.map(pizza => pizza.name); 
+    console.log('dentro de receber pizza',this.nomesPizzas);
+
+    if (this.nomesPizzas.length > 0) {
+      this.renderizarPedido = true;
+      console.log(this.renderizarPedido)
+    }
+
+    this.Cliente = this.clienteCadastroService.receberCliente(this.Cliente)
     console.log('dentro de pedido', this.Cliente);
-
     this.clienteForm = this.formBuilder.group({
       name: this.Cliente.name,
       email: this.Cliente.email,
@@ -45,44 +58,47 @@ export class PedidoComponent implements OnInit {
       bairro: this.Cliente.bairro,
       cidade: this.Cliente.cidade,
     }),
-      this.ClienteID = this.Cliente.id;
-
+    this.ClienteID = this.Cliente.id;
     this.redenrizarCliente = true;
-
-    if(this.PizzaID.length>0){  
-for (let i=0; i <= this.PizzaID.length; i++)
-{
-       this.pizzaService.getPizzaID(this.PizzaID[i]).subscribe(
-        (data)=>{
-      console.log("retorno do Service", data)
-      this.pizzaCardapio = data;})
   }
 
+  excluirPizza(id: number, pizza:any) {
+    this.ID = this.ID.filter(ID=>!(ID == id));
+    this.nomesPizzas = this.nomesPizzas.filter(nomesPizzas=>!(nomesPizzas == pizza))
+  
+    console.log('ID atualizado',this.ID);
 
-      this.renderizarPedido = true;
-      console.log(this.renderizarPedido)
+    this.pizzaService.updateNumberArray(this.ID);
+
+    if (this.ID.length == 0){
+    this.renderizarPedido = false;
+  }
+     //this.pizzaService.deletarPizzasIDCardapio(id);
+      
     }
-    }
+  
 
- 
-
-  //criando o pedido manualmente
   enviarPedido() {
 
+    console.log('dentro de pedido', this.ID)
+
     this.payload = {
-      "pizzasId": this.PizzaID,
+      "pizzasId": this.ID,
       "novasPizzas": [
         {
-          "nome": "",
-          "ingredients": [""]
+            nome: [],
+            ingredients: []
         }
-      ],
+    ],
       "clienteId": this.ClienteID
     };
 
+
+    if (this.ID.length>0 && this.ClienteID>0){ //loop para ignorar o endpoint create novasPizzas
+
     this.pedidoService.postPedido(this.payload).subscribe(
       succes => {
-        alert('Cliente cadastrado')
+        alert('Pedido realizado')
         console.log('payload', this.payload)
 
       },
@@ -91,5 +107,12 @@ for (let i=0; i <= this.PizzaID.length; i++)
           console.log(error)
       }
     )
+    }
+    else
+    {
+      alert('Cadastro ou pedido invalidos')
+    }
+
   }
 }
+

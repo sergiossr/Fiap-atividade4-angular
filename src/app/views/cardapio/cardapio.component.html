@@ -1,3 +1,61 @@
-<a >
-    <p>cardapio works!</p>
-</a>
+<div class="containerPizza">
+
+  <h2 class="h2">Pizzas Tradicionais</h2>
+  <div class="container1">
+    <div class="card" *ngFor="let pizza of pizzasTradicionais; let i = index">
+      <mat-card class="card">
+        <img mat-card-image height="180px" [src]=getImageLink(pizza) alt={{pizza.name}}>
+        <mat-card-title>{{pizza.name}}</mat-card-title>
+        <mat-card-content>
+          <p>
+            {{pizza.ingredients}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button class="buttonGreen" (click)="AdicionarPizza(pizza)">Adicionar</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+
+
+  <h2 class="h2">Pizzas Classicas</h2>
+  <div class="container1">
+    <div class="card" *ngFor="let pizza of pizzasClassicas;  let i = index">
+      <mat-card class="card">
+        <img mat-card-image height="180px" [src]=getImageLink(pizza) alt={{pizza.name}}>
+        <mat-card-title>{{pizza.name}}</mat-card-title>
+        <mat-card-content>
+          <p>
+            {{pizza.ingredients}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button class="buttonGreen" (click)="AdicionarPizza(pizza)">Adicionar</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+
+
+  <h2 class="h2">Pizzas Exclusivas</h2>
+  <div class="container1">
+    <div class="card" *ngFor="let pizza of pizzasExclusivas;  let i = index">
+      <mat-card class="card">
+        <img mat-card-image height="180px" [src]=getImageLink(pizza) alt={{pizza.name}}>
+        <mat-card-title>{{pizza.name}}</mat-card-title>
+        <mat-card-content>
+          <p>
+            {{pizza.ingredients}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button class="buttonGreen" (click)="AdicionarPizza(pizza)">Adicionar</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+</div>
