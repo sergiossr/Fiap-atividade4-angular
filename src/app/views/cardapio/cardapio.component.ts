@@ -80,13 +80,10 @@ export class CardapioComponent {
     return imageUrl;
   }
 
-
-
-  AdicionarPizza(pizza:any) {
-
-console.log('dentro de addPizza',pizza.name);
-this.pizzaService.addPizzaID(pizza);
-  
-}
+  AdicionarPizza(pizza: any) {
+    console.log('dentro de addPizza', pizza.name);
+    this.pizzaService.addPizzaID(pizza);
+    alert('Pizza adicionada')
+  }
 
 }
